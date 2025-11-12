@@ -59,3 +59,44 @@ class MultipleCounters {
 document.addEventListener('DOMContentLoaded', function() {
     new MultipleCounters();
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Обработчик для всех ссылок "прочитайте больше"
+    document.querySelectorAll('.read-more').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Отменяем переход по ссылке
+            
+            const title = this.getAttribute('data-title');
+            const content = this.getAttribute('data-content');
+            const image = this.getAttribute('data-image');
+            
+            Swal.fire({
+                title: title,
+                html: `
+                    <div class="modal-content-wrapper">
+                        ${image ? `<img src="${image}" alt="${title}" class="modal-image">` : ''}
+                        <div class="modal-text-content">
+                            ${content}
+                        </div>
+                        <div class="modal-contact-info">
+                            <h4 class="modal-contact-title">📞 Хотите узнать больше?</h4>
+                            <p class="modal-contact-text">Посетите нас лично или свяжитесь по телефону: <strong>+7 (999) 123-45-67</strong></p>
+                        </div>
+                    </div>
+                `,
+                width: 700,
+                padding: '30px',
+                background: '#fff',
+                showCloseButton: true,
+                showConfirmButton: true,
+                confirmButtonText: 'Закрыть',
+                confirmButtonColor: '#000',
+                customClass: {
+                    popup: 'custom-popup',
+                    title: 'swal-title-custom'
+                }
+            });
+        });
+    });
+});
