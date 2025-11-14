@@ -138,9 +138,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 `,
                 width: 700,
-                padding: '30px',
+                padding: '5px',
                 background: '#fff',
-                showCloseButton: true,
+                showCloseButton: false,
                 showConfirmButton: true,
                 confirmButtonText: 'Закрыть',
                 confirmButtonColor: '#000',
@@ -251,9 +251,9 @@ function openEventsModal() {
             </div>
         `,
         width: isMobile ? '95%' : 800,
-        padding: isMobile ? '15px' : '30px',
+        padding: isMobile ? '15px' : '5px',
         background: '#fff',
-        showCloseButton: true,
+        showCloseButton: false,
         showConfirmButton: false,
         customClass: {
             popup: 'custom-popup'
