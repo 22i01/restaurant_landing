@@ -713,7 +713,7 @@ font-family: var(--font-system);
     }
     
     .main-story-text {
-        padding: 2rem 1rem;
+        padding: 1rem 1rem;
     }
     
     .main-event-date {
@@ -1129,3 +1129,4 @@ body.menu-open {
     }
 
 }
+
