@@ -267,7 +267,9 @@ function openEventsModal() {
         padding: isMobile ? '15px' : '5px',
         background: '#fff',
         showCloseButton: true,
-        showConfirmButton: false,
+        showConfirmButton: true,
+        confirmButtonText: 'Закрыть',
+        confirmButtonColor: '#000',
         customClass: {
             popup: 'custom-popup'
         }
@@ -410,4 +412,5 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         openEventsModal();
     });
+
 });
