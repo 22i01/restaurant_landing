@@ -3,8 +3,12 @@
 
 <head>
   <meta charset="UTF-8" />
+  <title>Ресторан здорового питания в Париже | Свежие блюда от шеф-повара</title>
+  <meta name="description" content="Эксклюзивный ресторан здорового питания в Париже. Свежие сезонные блюда от шеф-повара. Бронируйте столик онлайн.">
+  <meta name="keywords" content="ресторан Париж, здоровое питание, шеф-повар...">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap"
@@ -20,6 +24,7 @@
       <a href="#about">О нас</a>
       <a href="#story">История</a>
       <a href="#events">Мероприятия</a>
+      <a href="#menu">Меню</a>
       <a href="#gallery">Галерея</a>
       <a href="#contact">Контакты</a>
     </nav>
@@ -53,7 +58,9 @@
 
 
     <div class="main-story" id="story">
-      <img src="./img/main-block1.jpg" alt="">
+      <img src="./img/main-block1.jpg" alt="" loading="lazy"  data-aos="fade-bottom"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
       <div class="main-story-text">
         <h3>История</h3>
         <h2>Странная история появления здорового питания</h2>
@@ -67,7 +74,9 @@
         </a>
       </div>
 
-      <img src="./img/main_block2.jpeg" alt="">
+      <img src="./img/main_block2.jpeg" alt="" loading="lazy" data-aos="fade-bottom"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
       <div class="main-story-text">
         <h3>сообщество</h3>
         <h2>Здоровое питание в соцсетях, с нами интересно</h2>
@@ -81,7 +90,9 @@
         </a>
       </div>
 
-      <img src="./img/main_block3.jpeg" alt="">
+      <img src="./img/main_block3.jpeg" alt="" loading="lazy" data-aos="fade-bottom"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
       <div class="main-story-text">
         <h3>философия</h3>
         <h2>Только лучшая еда, лучшие музыканты, лучшие гости</h2>
@@ -109,11 +120,11 @@
 
     <!-- SWIPER GALLERY -->
 
-    <div class="swiper mySwiper" id="gallery">
+    <div class="swiper mySwiper">
       <div class="swiper-wrapper">
 
         <div class="swiper-slide">
-          <img src="./img/swiper1.jpg" alt="Ресторан - интерьер" />
+          <img src="./img/swiper1.jpg" alt="Ресторан - интерьер" loading="lazy"/>
           <div class="slide-content">
             <h3>Обратная связь</h3>
             <p>Эксклюзивный <b>ресторан в Париже</b> ,
@@ -125,7 +136,7 @@
         </div>
 
         <div class="swiper-slide">
-          <img src="./img/swiper2.jpeg" alt="Ресторан - терраса" />
+          <img src="./img/swiper2.jpeg" alt="Ресторан - терраса" loading="lazy"/>
           <div class="slide-content">
             <h3>Обратная связь</h3>
             <p>Эксклюзивный <i><b>ресторан в Париже</b></i> ,
@@ -143,7 +154,8 @@
 
     <!-- SHEF MENU -->
 
-    <div class="shef-block">
+    <div class="shef-block" id="menu" data-aos="fade-up"
+     data-aos-duration="500">
       <h3>наше меню</h3>
       <h1>Вкусно от шеф-повара</h1>
       <div class="shef-block-menu">
@@ -154,18 +166,18 @@
 
     <!-- PHOTO GALLERY -->
 
-    <div class="photo-gallery">
+    <div class="photo-gallery" id="gallery">
       <div class="left-photo">
-        <img src="./img/swiper1.jpg" alt="Основное фото">
+        <img src="./img/swiper1.jpg" alt="Основное фото" loading="lazy">
       </div>
       <div class="right-top-photo">
-        <img src="./img/main_block2.jpeg" alt="Верхнее правое фото">
+        <img src="./img/main_block2.jpeg" alt="Верхнее правое фото" loading="lazy">
       </div>
       <div class="right-bottom-left">
-        <img src="./img/main_block3.jpeg" alt="Нижнее левое фото">
+        <img src="./img/main_block3.jpeg" alt="Нижнее левое фото" loading="lazy">
       </div>
       <div class="right-bottom-right">
-        <img src="./img/main-block1.jpg" alt="Нижнее правое фото">
+        <img src="./img/main-block1.jpg" alt="Нижнее правое фото" loading="lazy">
       </div>
     </div>
 
@@ -175,7 +187,7 @@
     <section class="counter-section">
       <div class="counter-container">
         <div class="counter-image">
-          <img src="./img/chicken-leg-chicken-svgrepo-com.svg" alt="">
+          <img src="./img/chicken-leg-chicken-svgrepo-com.svg" alt="" loading="lazy">
         </div>
         <div class="counter-number">
           <span id="counter1" class="counter">0</span>
@@ -187,7 +199,7 @@
 
       <div class="counter-container">
         <div class="counter-image">
-          <img src="./img/plate-knife-and-fork-svgrepo-com.svg" alt="">
+          <img src="./img/plate-knife-and-fork-svgrepo-com.svg" alt="" loading="lazy">
         </div>
         <div class="counter-number">
           <span id="counter2" class="counter">0</span>
@@ -199,7 +211,7 @@
 
       <div class="counter-container">
         <div class="counter-image">
-          <img src="./img/croissant-svgrepo-com.svg" alt="">
+          <img src="./img/croissant-svgrepo-com.svg" alt="" loading="lazy">
         </div>
         <div class="counter-number">
           <span id="counter3" class="counter">0</span>
@@ -232,8 +244,30 @@
     <!-- CONNECT US -->
 
     <footer class="footer">
-
-    </footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>Контакты</h4>
+      <p>Париж, ул. Примерная, 123</p>
+      <p>+33 1 23 45 67 89</p>
+      <p>info@restaurant.fr</p>
+    </div>
+    <div class="footer-section">
+      <h4>Часы работы</h4>
+      <p>Пн-Пт: 12:00-23:00</p>
+      <p>Сб-Вс: 11:00-00:00</p>
+    </div>
+    <div class="footer-section">
+      <h4>Соцсети</h4>
+      <div class="social-links">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Ресторан здорового питания. Все права защищены.</p>
+  </div>
+</footer>
 
 
   </main>
@@ -241,6 +275,7 @@
 
   <script src="./main.js"></script>
   <script src="./js/content-loader.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -252,7 +287,7 @@
         clickable: true,
       },
       autoplay: {
-        delay: 50000,
+        delay: 5000,
         disableOnInteraction: false,
       },
       effect: "slide",
@@ -261,6 +296,9 @@
       },
       speed: 1000,
     });
+
+    AOS.init();
+
   </script>
 
 </body>
