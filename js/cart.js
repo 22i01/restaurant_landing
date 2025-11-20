@@ -337,7 +337,7 @@ class Cart {
     sendToWhatsApp() {
         if (this.items.length === 0) return;
 
-        const phoneNumber = '+33123456789';
+        const phoneNumber = '+77074612928';
         const message = this.generateWhatsAppMessage();
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
@@ -368,4 +368,5 @@ let cart;
 document.addEventListener('DOMContentLoaded', () => {
     cart = new Cart();
     window.cart = cart;
+
 });
