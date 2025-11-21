@@ -1,7 +1,9 @@
 /* Иконка корзины */
+
+
 .cart-icon {
     position: fixed;
-    top: 2rem;
+    bottom: 2rem;
     right: 2rem;
     background: white;
     border-radius: 50%;
@@ -39,9 +41,9 @@
 
 /* Кнопки добавления в корзину (плюсы) */
 .add-to-cart-plus {
-    background: #000;
-    color: white;
-    border: none;
+    background: transparent;
+    color: #000;
+    border: 1px solid #000;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -50,16 +52,18 @@
     justify-content: center;
     cursor: pointer;
     font-size: 1.2rem;
-    font-weight: bold;
+    font-weight: 300;
     transition: all 0.3s ease;
     margin-top: 0.5rem;
     align-self: center;
+    position: relative;
 }
 
 .add-to-cart-plus:hover {
-    background: #333;
+    background: #000;
+    color: white;
     transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 /* Уведомления */
@@ -145,8 +149,11 @@ body.cart-open {
 
 .cart-modal-header h2 {
     margin: 0;
-    font-family: var(--font-playfair);
+    font-family: var(--font-system);
     font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     color: #333;
 }
 
@@ -340,7 +347,7 @@ body.cart-open {
 /* Адаптивность */
 @media (max-width: 768px) {
     .cart-icon {
-        top: 1rem;
+        bottom: 3rem;
         right: 1rem;
         width: 50px;
         height: 50px;

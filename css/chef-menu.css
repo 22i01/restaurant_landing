@@ -40,6 +40,7 @@
     max-width: 20vw;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 1rem;
     margin-bottom: 1rem;
     padding-bottom: 1rem;
