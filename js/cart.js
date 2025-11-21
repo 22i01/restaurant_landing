@@ -213,7 +213,7 @@ class Cart {
             <div class="cart-modal-footer">
                 <div class="cart-total">
                     <span>Итого:</span>
-                    <span>${this.getTotalPrice().toLocaleString()} руб.</span>
+                    <span>${this.getTotalPrice().toLocaleString()} $</span>
                 </div>
                 
                 <button class="whatsapp-btn" id="whatsapp-btn" ${this.items.length === 0 ? 'disabled' : ''}>
@@ -236,7 +236,7 @@ class Cart {
                     <div class="cart-item-info">
                         <h4 class="cart-item-name">${item.name}</h4>
                         <p class="cart-item-description">${item.description}</p>
-                        <p class="cart-item-price">${item.price} × ${item.quantity} = ${itemTotal.toLocaleString()} руб.</p>
+                        <p class="cart-item-price">${item.price} × ${item.quantity} = ${itemTotal.toLocaleString()} $</p>
                     </div>
                     <div class="cart-item-controls">
                         <button class="quantity-btn decrease-btn">-</button>
@@ -250,56 +250,63 @@ class Cart {
     }
 
     setupModalEventListeners(modal, overlay) {
-        // Закрытие модального окна
-        const closeBtn = modal.querySelector('#cart-close-btn');
-        closeBtn.addEventListener('click', () => {
-            this.closeCartModal();
-        });
-
-        overlay.addEventListener('click', () => {
-            this.closeCartModal();
-        });
-
-        // Очистка корзины - ОДИН обработчик
-        const clearBtn = modal.querySelector('#clear-cart-btn');
-        if (clearBtn) {
-            clearBtn.addEventListener('click', () => {
+        // Делегирование событий для всех кнопок в модальном окне
+        const handleModalClick = (e) => {
+            const target = e.target;
+            
+            // Закрытие модального окна
+            if (target.id === 'cart-close-btn' || target.closest('#cart-close-btn')) {
+                this.closeCartModal();
+                return;
+            }
+            
+            // Очистка корзины
+            if (target.id === 'clear-cart-btn' || target.closest('#clear-cart-btn')) {
                 if (confirm('Вы уверены, что хотите очистить корзину?')) {
                     this.clearCart();
                 }
-            });
-        }
-
-        // Заказ через WhatsApp - ОДИН обработчик
-        const whatsappBtn = modal.querySelector('#whatsapp-btn');
-        if (whatsappBtn) {
-            whatsappBtn.addEventListener('click', () => {
+                return;
+            }
+            
+            // Заказ через WhatsApp
+            if (target.id === 'whatsapp-btn' || target.closest('#whatsapp-btn')) {
                 this.sendToWhatsApp();
-            });
-        }
-
-        // Управление количеством - ДЕЛЕГИРОВАНИЕ
-        modal.addEventListener('click', (e) => {
-            const cartItem = e.target.closest('.cart-item');
+                return;
+            }
+            
+            // Управление количеством товаров
+            const cartItem = target.closest('.cart-item');
             if (!cartItem) return;
 
             const itemId = cartItem.dataset.id;
 
-            if (e.target.classList.contains('increase-btn')) {
+            if (target.classList.contains('increase-btn')) {
                 this.updateQuantity(itemId, 1);
-            } else if (e.target.classList.contains('decrease-btn')) {
+            } else if (target.classList.contains('decrease-btn')) {
                 this.updateQuantity(itemId, -1);
-            } else if (e.target.classList.contains('remove-btn')) {
+            } else if (target.classList.contains('remove-btn')) {
                 this.removeItem(itemId);
             }
+        };
+
+        // Удаляем старые обработчики и добавляем новые
+        modal.removeEventListener('click', handleModalClick);
+        modal.addEventListener('click', handleModalClick);
+
+        // Закрытие по оверлею
+        overlay.addEventListener('click', () => {
+            this.closeCartModal();
         });
 
         // Закрытие по Escape
-        document.addEventListener('keydown', (e) => {
+        const handleEscape = (e) => {
             if (e.key === 'Escape' && this.isModalOpen) {
                 this.closeCartModal();
             }
-        });
+        };
+        
+        document.removeEventListener('keydown', handleEscape);
+        document.addEventListener('keydown', handleEscape);
     }
 
     updateCartModal() {
@@ -337,7 +344,7 @@ class Cart {
     sendToWhatsApp() {
         if (this.items.length === 0) return;
 
-        const phoneNumber = '+77074612928';
+        const phoneNumber = '+33123456789';
         const message = this.generateWhatsAppMessage();
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
@@ -351,10 +358,10 @@ class Cart {
         
         this.items.forEach((item, index) => {
             const itemTotal = this.extractPrice(item.price) * item.quantity;
-            message += `${index + 1}. ${item.name} - ${item.quantity} × ${item.price} = ${itemTotal.toLocaleString()} руб.\n`;
+            message += `${index + 1}. ${item.name} - ${item.quantity} × ${item.price} = ${itemTotal.toLocaleString()} $\n`;
         });
         
-        message += `\nИтого: ${this.getTotalPrice().toLocaleString()} руб.`;
+        message += `\nИтого: ${this.getTotalPrice().toLocaleString()} $`;
         message += `\n\nСпасибо!`;
         
         return message;
@@ -368,5 +375,4 @@ let cart;
 document.addEventListener('DOMContentLoaded', () => {
     cart = new Cart();
     window.cart = cart;
-
 });
