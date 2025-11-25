@@ -1,9 +1,10 @@
-/* Современный футер с сеткой - адаптированный */
+
 .footer {
     background: #1a1a1a;
     color: white;
     padding: var(--spacing-xl) 0 var(--spacing-md);
     margin-top: 5rem;
+    
 }
 
 .footer-content {
@@ -23,13 +24,13 @@
 }
 
 .footer-section h4 {
-    font-family: var(--font-playfair);
+    font-family: var(--font-system);
     font-size: 1.3rem;
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: var(--spacing-sm);
     color: white;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     position: relative;
     padding-bottom: 0.5rem;
 }
