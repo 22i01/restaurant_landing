@@ -378,3 +378,29 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Error during initialization:', error);
     }
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Получаем все изображения в секции .main-story
+    const images = document.querySelectorAll('.main-story img');
+
+    // Создаем наблюдатель
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // Если элемент в зоне видимости
+            if (entry.isIntersecting) {
+                // Добавляем класс для анимации
+                entry.target.classList.add('animated');
+                // Можно отключить наблюдение после появления, чтобы анимация не повторялась
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1 // Сработает, когда 10% элемента видно
+    });
+
+    // Наблюдаем за каждым изображением
+    images.forEach(img => {
+        observer.observe(img);
+    });
+});

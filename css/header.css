@@ -35,7 +35,7 @@ header {
 }
 
 .burger-menu:hover {
-    background-color: #ff6b6b;
+    background-color: gray;
     transform: scale(1.1);
 }
 
@@ -60,7 +60,7 @@ header {
 
 .burger-menu:hover::before,
 .burger-menu:hover::after {
-    background-color: #ff6b6b;
+    background-color: gray;
 }
 
 .header-logo {
@@ -125,7 +125,7 @@ header {
 }
 
 .triangle-down:hover {
-    border-top-color: #ff6b6b;
+    border-top-color: gray;
     transform: translate(-50%, -50%) scale(1.2);
 }
 
